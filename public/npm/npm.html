@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NPM</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <ul id="nav">
+        <li><a href="/">Welcome</a> </li>
+        <li><a href="/js_intro">JavaScript Intro</a> </li>
+        <li><a href="/nodejs">NodeJS</a> </li>
+        <li><a href="/npm" class="active">NPM</a> </li>
+        <li><a href="/express">Express</a></li>
+        <li><a href="/rest_api">REST API</a> </li>
+    </ul>
+    <div class="container">
+        <div class="left">
+            <h3>Useful Videos</h3>
+            <iframe src="https://www.youtube.com/embed/8Rmj5UY5mJk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <p></p>
+        </div>
+        <div class="main">
+            <h1>Introduction to Node Package Manager (npm)</h1>
+            <img src="./npm.png" width="700px">
+            <p><b>npm</b> (originally short for Node Package Manager) is a package manager and build tool for the JavaScript programming language.
+                Is the default package manager for the JavaScript runtime environment Node.js. 
+                It consists of a command line client, also called npm, and an online database of public and paid-for private packages, 
+                called the npm registry. The registry is accessed via the client, and the available packages can be browsed and searched 
+                via the npm <a href="https://www.npmjs.com/" target="_blank">website</a>. The package manager and the registry are managed by npm, Inc.</p>
+            <p>NPM is installed automatically, when you install NodeJS</p>
+            <h3>NPM is responsible for: </h3>
+            <ol>
+                <li>Downloading the packages/modules</li>
+                <li>Storing metadata</li>
+                <li>Running command-line scripts</li>
+                <li>etc.</li>
+            </ol>
+
+            <h2>Package.json</h2>
+            <p>npm works through package.json file (name of file cannot change), which is the project file. It contains packages(modules/dependancies/libraries) that should 
+                be installed also can have scripts and metadata. </p>
+            <p>package.json is similar to pom.xml in Maven.</p>
+            <h3>Creating package.json file</h3>
+            <p>We can create the<code>package.json</code> file inside the <code>First_Project</code> folder</p>
+            <h3>Adding modules</h3>
+            <p>	Inside the package.json file we will have a json object, which will have a keypair with key being dependencies 
+                and the value being another json object with yet another keypair where the key is the module you want to have and the value being the version</p>
+            <h3>Installing the modules</h3>
+            <p>You can install the modules by writing <code>npm install/i</code> command in the terminal and the modules spedified in the package.json will be added.</p>
+            <p>Otherwise, you can write <code>npm install/i [package_name] </code> and npm will install the specified module</p>
+            <pre>
+    $ npm install express
+            </pre>
+            <img src="./npm_example.png" width="700px">
+            <h2>Node_modules folder</h2>
+            <p>All the modules/packages are downloaded and stored in the <code>node_modules</code> folder. The folder is created automatically</p>
+            <img src="./node_modules_example.png" width="300px">
+            <h2>Package-lock.json</h2>
+            <p>This file contains meta-information on all the packages that were install and where npm got it from. The file is created automatically</p>
+            <img src="./package-lock_example.png" width="400px">
+            <h2>Using Packages</h2>
+            <p>Node uses the require module for managing packages. We work with packages by using <code>require("[package_name]")</code> function. 
+                If we have a node_modules folder and an express.js package in there, the require('express') command will look through node_modules folder and find it.</p>
+            <p> And by default require() function checks only the node_modules folder. So if we want to include another module outside the node_modules folder, we have to provide the path.</p>
+            <p>Example of how we would use express package after installing it:</p>
+            <pre>
+    const express = require("express");
+    const app = express();
+            </pre>
+            <p>First we get the library/module through require() and store it in a constant, and then we instantiate it (so it is running as a server) and it is ready to be used for http requests.</p>
+            <h2>Running Scripts with NPM</h2>
+            <p>We can run scripts (command-line scripts) in package.json and npm can execute them</p>
+            <p>In <code>package.sjon</code> we need to include the <code>scripts</code> object. Scripts is a json object, which has name of the script as key and actual script as value</p>
+            <h3>Running the scripts</h3>
+            <p>To run the scripts, we write <code>npm run [name_of_script]</code> in the terminal</p>
+            <pre>
+    In package.json:
+    "scripts": {
+        "mydir": "dir",
+        "app": "node ./app.js"
+    }
+
+    In terminal:
+    $ npm run mydir
+    $ npm run app
+            </pre>
+            <img src="./script_example.png" width="700px">
+            <h2>Some Terminology</h2>
+            <h3>Module & Package</h3>
+            <p>A module is a single JavaScript file that has some reasonable functionality. A package is a directory with one or more modules inside of it 
+                and a package.json file which has metadata about the package. Now it's very common for people to refer to a package as a module.</p>
+        </div>
+        <div class="right">
+            
+            <h3>Useful Links</h3>
+            <a href="https://www.npmjs.com/" target="_blank">NPM Official Website</a>
+            <br>
+            <a href="https://www.w3schools.com/nodejs/nodejs_npm.asp" target="_blank">W3Schools NPM Introduction</a>
+           <button id="btnToTop" onclick="topFunction()">Go to Top</button>
+        </div>
+        
+    </div>
+    <script>
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+      }
+      </script>
+          
+</body>
+</html>

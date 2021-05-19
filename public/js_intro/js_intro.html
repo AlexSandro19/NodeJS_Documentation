@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <ul id="nav">
+        <li><a href="/">Welcome</a> </li>
+        <li><a href="/js_intro" class="active">JavaScript Intro</a> </li>
+        <li><a href="/nodejs">NodeJS</a> </li>
+        <li><a href="/npm">NPM</a> </li>
+        <li><a href="/express">Express</a></li>
+        <li><a href="/rest_api">REST API</a> </li>
+    </ul>
+    <div class="container">
+        <div class="left">
+            <h3>Useful Videos</h3>
+            <iframe src="https://www.youtube.com/embed/PkZNo7MFNFg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+        </div>
+        <div class="main">
+            <h1>Introduction to JavaScript</h1>
+            <p><b>JavaScript often abbreviated as JS, is a programming language that conforms to the ECMAScript specification.</b></p>
+            <img src="./js_pic.png" width="800px">
+            <br>
+            <h2>JavaScript Files</h2>
+            <p>JavaScript files need to have .js extension: <b>FILE_NAME.js</b></p>
+            <p>Let's create a folder called <code>First_Project</code> and a file inside it, called <code>app.js</code> for our first project</p>
+            <br>
+            <h2>Writing our first porgram</h2>
+            <p>Write the following code in <code>app.js</code> file</p>
+            <pre>console.log("Hello JavaScript");</pre>
+            <p>Run it in the terminal using the following command</p>
+            <pre>$ node app.js</pre>
+            <p>Make sure you are in the right directory/folder</p>
+            <br>
+            <img src="./console_log.png" width="700px" >
+            <h2>Variables in JavaScript</h2>
+            <p>JavaScript variables are containers for storing data values.</p>
+            <p>Variables can be declared in 3 ways:</p>
+            <ul>
+                <li><span><code>var</code> -- with var, variable has global scope to the entire project. </span></li>
+                <li><span><code>let</code> -- with let, variable can be changed later </span></li>
+                <li><span><code>const</code> -- with const variable is a constant, it cant be changed after initialization </span></li>
+            </ul>
+            <h2>Data Types</h2>
+            <p>The latest ECMAScript standard defines eight data types:
+            </p>
+            <ul>
+                <li> <p>Primitive Data Types</p>
+                    <ol>
+                        <li>
+                            <b>Boolean</b> -- true and false.
+                        </li>
+                        <li>
+                            <b>Number</b> -- An integer or floating point number. For example: 42 or 3.14159.
+                        </li>
+                        <li>
+                            <b>BigInt</b> -- An integer with arbitrary precision. For example: 9007199254740992n.
+                        </li>
+                        <li>
+                            <b>String</b> -- A sequence of characters that represent a text value. For example: "Howdy"
+                        </li>
+                        <li>
+                            <b>Symbol</b> (new in ECMAScript 2015) -- A data type whose instances are unique and immutable.
+                        </li>
+                        <li>
+                            <b>null</b> -- A special keyword denoting a null value. 
+                        </li>
+                        <li>
+                            <b>undefined</b> -- A top-level property whose value is not defined.
+                        </li>
+                    </ol>
+                </li>
+                <li> <p>Non-primitive Data Types</p>
+                    <ol>
+                        <li><b>Object</b> -- Used to store properties and methods. Usually representes real-world objects. Ex: car, human etc</li>
+                        <li><b>Array</b> -- Class is a global object that is used in the construction of arrays; which are high-level, list-like objects</li>
+                        <li><b>Function</b> -- Function Object consists a set of statements that performs a task or calculates a value</li>
+                    </ol>
+
+                </li>
+            </ul>
+            <h4>Checking the Data Type of a variable</h4>
+            <p>In order to check variable's data type, we can use <code>typeof</code> command</p>
+            <pre>Ex: console.log(typeof "hello") // String</pre>
+            <br>
+            <h3>String Methods</h3>
+            <ul>
+                <li><b>charAt()</b> -- Returns a character at a specified position inside a string</li>
+                <li><b>concat()</b> -- Concatenates (joins) two or more strings into one</li>
+                <li><b>indexOf()/lastIndexOf()</b> -- Provides the position of the first/last occurrence of a specified text within a string</li>
+                <li><b>match()</b> -- Retrieves the matches of a string against a search pattern</li>
+                <li><b>replace()</b> -- Find and replace specific text in a string</li>
+                <li><b>slice()</b> -- Extracts a section of a string and returns it as a new string</li>
+                <li><b>search()</b> -- Executes a search for a matching text and returns its position</li>
+                <li><b>split()</b> -- Splits a string object into an array of strings at a specified position</li>
+                <li><b>toUpperCase()/toLowerCase()</b> -- Convert strings to uppercase/lowercase</li>
+                <li><b>ETC.</b></li>
+            </ul>
+
+            <h3>Number & Math Properties</h3>
+            <ol>
+                <li><b>MAX_VALUE</b> -- The maximum numeric value representable in JavaScript</li>  
+                <li><b>MIN_VALUE</b> -- Smallest positive numeric value representable in JavaScript</li>
+                <li><b>NaN</b> -- The “Not-a-Number” value </li>
+                <li><b>NEGATIVE_INFINITY</b> -- The negative Infinity value </li>
+                <li><b>POSITIVE_INFINITY</b> -- Positive Infinity value </li> 
+                <li><b>E</b> -- Euler’s number</li>
+                <li><b>LN10</b> -- Natural logarithm of 10 </li>
+                <li><b>PI</b> -- The number PI</li>
+                <li><b>ETC.</b></li>
+            </ol>
+            <h3>Number & Math Methods</h3>
+            <ul>
+                <li><b>toExponential() </b> -- Returns a string with a rounded number written as exponential notation </li>
+                <li><b>toFixed()</b> -- Returns the string of a number with a specified number of decimals</li>
+                <li><b>toPrecision()</b> -- String of a number written with a specified length</li>
+                <li><b>toString() </b> -- Returns a number as a string</li>
+                <li><b>valueOf()</b> -- Returns a number as a number</li>
+                <li><b>abs(x)</b> -- Returns the absolute (positive) value of x</li>
+                <li><b>ceil(x)</b> -- Value of x rounded up to its nearest integer</li>
+                <li><b>sin()/cos()</b> -- The cosine/sine of x (x is in radians)</li>
+                <li><b>floor(x)</b> --The value of x rounded down to its nearest integer  </li>
+                <li><b>max/min(x,y,z,...,n)</b> -- Returns the number with the highest/lowest value</li>
+                <li><b>pow(x,y)</b> -- X to the power of y</li>
+                <li><b>random()</b> -- Returns a random number between 0 and 1</li>
+                <li><b>round(x)</b> -- The value of x rounded to its nearest integer</li>
+                <li><b>sqrt(x)</b> -- Square root of x</li>
+                <li><b>ETC.</b></li>
+            </ul>
+            <h2>Objects</h2>
+            <p>
+                JavaScript objects are containers for named values called properties or methods (functions associated to specific objects). 
+                The values are written as key:value pairs. Values can be of any data type.  
+            </p>
+            <h3>Creating an Object</h3>
+            <p>We can define (and create) a JavaScript object with an curly brackets { }:</p>
+            <pre>
+    let car = {
+        name: "Fiat",
+        model: "500",
+        color: "white",
+        weight: 850,
+        start : function() {//or start(){…}
+            return "car started";
+        }
+    };
+            </pre>
+            <h3>Accessing Object's Properties</h3>
+            <p>We can access the object's properties in 2 ways, with the . operator or using square brackets [ " " ]:</p>
+            <pre>
+    car.name;
+    car["name"];
+            </pre>
+            <h3>Deleting Object's Properties</h3>
+            <p>We can delete the object's properties using the <code>delete</code> keyword:</p>
+            <pre>
+    const thisSong = {"description": "The best song in the world."};
+    delete thisSong.description;
+    thisSong.about = "Just a tribute.";
+    console.log(thisSong);
+            </pre>
+            <p>The above lines of code will remove the "description" property and add a new "about" property to the thisSong object.</p>
+        
+            <h2>Arrays</h2>
+            <p>JavaScript arrays are zero-indexed. Arrays can store any data type in a single array</p>
+            <pre>
+    let fruit = ["Banana", "Apple", "Pear"];  
+    let whatever = ["Hello", 2, false, {a:1, b:3}];
+            </pre>
+            <h3>Array Methods</h3>
+            <ul>
+                <li><b>concat()</b> -- Join several arrays into one </li>
+                <li><b>indexOf()/lastIdexOf()</b></b> -- Returns the first/last position at which a given element appears in an array</li>
+                <li><b>join()</b> -- Combine elements of an array into a single string and return the string</li>
+                <li><b>pop()</b> -- Removes the last element of an array </li>
+                <li><b>push()</b> -- Add a new element at the end</li>
+                <li><b>reverse()</b> -- Reverse the order of the elements in an array</li>
+                <li><b>shift()</b> -- Remove the first element of an array</li>
+                <li><b>unshift()</b> -- Adds a new element to the beginning</li>
+                <li><b>splice()</b> -- Adds elements in a specified way and position</li>
+                <li><b>sort()</b> -- Sorts elements alphabetically </li>
+                <li><b>toString()</b> -- Converts elements to strings</li>
+                <li><b>valueOf()</b> -- Returns the primitive value of the specified object</li>
+                <li><b>ETC.</b></li>
+            </ul>
+            <h2>Functions</h2>
+            <p>Generally speaking, a function is a "subprogram" that can be called by code external (or internal in the case of recursion) to the function. Like the program itself, a function is composed of a sequence of statements called the function body. Values can be passed to a function, and the function will return a value.</p>
+            <p>In JavaScript, functions are first-class objects, because they can have properties and methods just like any other object. What distinguishes them from other objects is that functions can be called. In brief, they are Function objects.</p>
+            <h3>Types of Functions</h3>
+            <ol>
+                <li>
+                    <b>Named function</b>
+                    <p>Named function is the function that we define it in the code and then call it whenever we need it by referencing its name and passing some arguments to it. </p>
+                </li>
+                <li>
+                    <b>Anonymous function</b>
+                    <p>The anonymous functions don’t have names. They need to be tied to something: variable or an event to run.</p>
+                </li>
+                <li>
+                    <b>Arrow function</b>
+                    <p>These are anonymous functions with their own special syntax that accept a fixed number of arguments, and operate in the context of their enclosing scope - ie the function or other code where they are defined.</p>
+                </li>
+                <li>
+                    <b>Callback function</b>
+                    <p>It is a function that is passed as an argument to other function. So the function which is passed can be called/executed/performed later. Also, callbacks are often used to continue code execution after an asynchronous operation has completed — these are called asynchronous callbacks.</p>
+                </li>
+                <li>
+                    <b>Immediately invoked function expression.</b>
+                    <p>It runs as soon as the browser finds it. Invoked function expression runs as soon as the browser encounters it. The benefit of this function is that it runs immediately where it’s located in the code and produces a direct output</p>
+                </li>
+
+            </ol>
+
+        </div>
+        <div class="right">
+            
+            <h4>Useful Links</h4>
+            <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">MDN JavaScript Documentation</a>
+            <br>
+            <a href="https://www.w3schools.com/js/default.asp" target="_blank">W3Schools JavaScript Tutorial</a>
+            
+            <button id="btnToTop" onclick="topFunction()">Go to Top</button>
+        </div>
+        
+    </div>
+    <script>
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+      }
+      </script>
+      
+</body>
+</html>

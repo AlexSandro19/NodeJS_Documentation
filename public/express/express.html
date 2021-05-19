@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Express</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <ul id="nav">
+        <li><a href="/">Welcome</a> </li>
+        <li><a href="/js_intro">JavaScript Intro</a> </li>
+        <li><a href="/nodejs">NodeJS</a> </li>
+        <li><a href="/npm">NPM</a> </li>
+        <li><a href="/express" class="active">Express</a></li>
+        <li><a href="/rest_api">REST API</a> </li>
+    </ul>
+    <div class="container">
+        <div class="left">
+            <h3>Useful Videos</h3>
+            <iframe src="https://www.youtube.com/embed/L72fhGm1tfE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <p></p>
+        </div>
+        <div class="main">
+            <h1>Introduction to Express</h1>
+            <img src="./express.png" width="700px">
+            <p><b>Express.js</b>, or simply Express is a fast, unopinionated and minimalist web framework for Node.js. It is designed for building web applications and APIs. It has been called the de facto standard server framework for Node.js.
+                 We can install it through npm by writing this command in the terminal:</p>
+            <pre><b>
+    $ npm install express</b>
+            </pre>
+            <h2>Working With Express</h2>
+            <p>With Express we can set up a Web Server. To do that, we can add the following code in our app.js:</p>
+            <pre>
+    const express = require("express"); // The whole library is saved, and can be used later
+    const app = express(); // We instantiate express and create the application server
+    
+    app.use(express.json()); // We enable Express to parse the body of our http methods (done by using built-in body-parser)
+    
+    app.listen(8080, err =>{ // We set the port express listens at. In case we get an error, it will be displayed
+        if (err)
+            console.log(err);
+        else
+            console.log("Server running on port", 8080);
+    });
+            </pre>
+        <p>We run the program with <code>node app.js</code> and we can see the result</p>
+        <img src="./express_start_example.png" width="600px">
+        
+        <h2>Sending JSON</h2>
+        <p>For our first example we will create A REST API. Our web browser (which acts as a client) will request a resource and 
+            our backend will handle the request and will send back the response through Express. The response can be sent as json, html pages, etc 
+        </p>
+        <p>Add the following code into our <code>app.js</code> file</p>
+        <pre>
+    app.get("/hello", (req, res) => {
+        res.send({ message: "Hello there" });
+    });
+        </pre>
+        <p>We initialize the GET method. So <code>app.get()</code> is the route handler/event handler/route. It has two parameters:</p>
+        <ol>
+            <li><code>endpoint</code> ("/welcome")</li>
+            <li><code>callback</code>, which is a arrow function. It takes as parameters the request(req) and response(res)  and sends back a response as json, html pages, etc using <code>res.send()</code> method</li>
+        </ol>
+        <p>We use <code>res.send()</code> or <code>res.json()</code> methods to send back data/response to the client. Both methods work almost the same, more info can be found <a href="https://medium.com/gist-for-js/use-of-res-json-vs-res-send-vs-res-end-in-express-b50688c0cddf#:~:text=There%20is%20no%20actual%20difference,both%20methods%20are%20almost%20identical" target="_blank">here</a></p>
+        <p>We test the application with <code>node app.js</code> in the terminal and get the following result:</p>
+        <img src="./express_json_example.png" width="600px">
+        <h2>Sending HTML pages</h2>
+        <p>To serve an HTML file, we use <code>sendFile(__dirname + html_page_route)</code> method</p>
+        <p>__dirname is the directory path for where the Node runs app.js file. </p>
+        <p>Folder that stores the html pages in Express is called <code>"public"</code></p>
+        <pre>
+    app.get('/welcome', (req, res)=>{
+        res.sendFile(__dirname + "/public/welcome.html");
+    });
+        </pre>
+        <img src="./express_html_example.png" width="600px">
+        <br>
+
+        <h2>Working With HTTP Requests using Express</h2>
+
+        <h3>HTTP Request consists of:</h3>
+        <ul>
+            <li><b>HTTP Method</b></li>
+            <li><b>URL</b></li>
+            <li><b>HTTP Headers</b></li>
+            <li><b>HTTP Body</b></li>
+            <li><b>Accept Header (content negotiation)</b></li>
+            <li><b>User Agent</b></li>
+        </ul>
+        
+        <h3>HTTP Response consists of:</h3>
+        <ul>
+            <li><b>Status Code</b></li>
+            <li><b>Headers</b></li>
+            <li><b>Body</b></li>
+            <li><b>Content Length</b></li>
+            <li><b>Content Type</b></li>
+        </ul>
+        <p>More information can be found <a href="https://gavilan.blog/2019/01/03/anatomy-of-an-http-request/" title="Anatomy of HTTP request in blog" target="_blank" >here</a> and <a href="https://robrich.org/slides/anatomy_of_a_web_request/#/1" title="Anatomy of HTTP request in Slideshow" target="_blank">here</a></p>
+        <br>
+        <h3>Working with URL</h3>
+        <p>When working with URL, Express helps us access:</p>
+        <ol>
+            <li><b>Path Variables</b></li>
+            <li><b>Query Parameters</b> (also called Query Strings)</li>
+        </ol>
+        <p>In the example below:</p>
+        <ul>
+            <li>
+                3, today -- path variables
+            </li>
+            <li>name=Alex&course=Physics  -- query parameters</li>
+        </ul>
+        <pre>
+localhost:8080/day/today/3?name=Alex&course=Physics 
+        </pre>
+        <h3>Path Variables</h3>
+        <p>	We have dynamic content through path variables. We can have multiple path variables, not just one (they are separated by /)</p>
+	    <p>>We define path variables through colon (:) and variable name and can access them through <code>req.params</code> which returns an object with the name we defined, and value</p>
+        <img src="./path_variables_example.png" width="700px">
+        <h3>Query Parameters </h3>
+        <p>We can access the query parameters through <code>req.query</code> -- the req object has query property. This property returns the query parameters as objects</p>
+        <p>Path variables are added at the end of URL, after ?. We can have multiple path variables, not just one (they are separated by &)</p>
+        <img src="./query_parameters_example.png" width="700px">
+        <p>If the name of the provided key is known, then we can use it to access the value from the query parameter</p>
+        <img src="./query_parameters__with_known_key_example.png" width="700px">
+        <h2>HTTP Body Request</h2>
+        <p>Before, to work with the request bodies, the <a href="https://www.npmjs.com/package/body-parser" target="_blank">body-parser module</a> had to be included. Express couldn't work with body but default.</p>
+        <p>Now body-parser is included in Express. So to work with incoming request bodies, we write <code></code>app.use(express.json());</code> in app.js file</p>
+        <p>So if we send something in body of the request, we can work with it by accessing <code>req.body</code> property.</p>
+        <p>And we can access they values separately, as well, if we know the keys</p>
+        <img src="./request_body_example.png" width="700px">
+        <br>
+        <br>
+    </div>
+        <div class="right">
+            
+            <h3>Useful Links</h3>
+            <a href="https://expressjs.com/en/starter/installing.html" target="_blank">Express Documentation</a>
+            <br>
+            <a href="https://www.npmjs.com/package/express" target="_blank">Express on NPM website</a>
+           <button id="btnToTop" onclick="topFunction()">Go to Top</button>
+        </div>
+    
+    </div>
+    <script>
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+      }
+      </script>
+          
+</body>
+</html>

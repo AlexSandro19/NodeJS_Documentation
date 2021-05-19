@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NodeJS</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <ul id="nav">
+    <li><a href="/">Welcome</a> </li>
+    <li><a href="/js_intro">JavaScript Intro</a> </li>
+    <li><a href="/nodejs" class="active">NodeJS</a> </li>
+    <li><a href="/npm">NPM</a> </li>
+    <li><a href="/express">Express</a></li>
+    <li><a href="/rest_api">REST API</a> </li>
+</ul>
+    <div class="container">
+        <div class="left">
+            <h3>Useful Videos</h3>
+            <iframe src="https://www.youtube.com/embed/TlB_eWDSMt4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <p></p>
+            <iframe src="https://www.youtube.com/embed/RLtyhwFtXQA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            
+        </div>
+        <div class="main">
+            <h1>Introduction to NodeJS</h1>
+            <img src="./nice_nodejs_pic.png" width="750px">
+            <p>Node.js is an open-source, cross-platform, back-end JavaScript runtime environment/platform that runs on the V8 engine and has everything to execute JavaScript code outside a web browser. </p>
+            <img src="./node_envirnonment_picture.png" width="450px">
+            <h3>With Node you can create: </h3>
+            <ul>
+                <li>Backend for websites</li>
+                <li>Desktop applications</li>
+                <li>Scripts</li>
+                <li>Command-line interfaces/apps</li>
+                <li>ETC.</li>
+            </ul>
+
+            <h2>Start working with NodeJS</h2>
+            <h3>Dowloading NodeJS</h3>
+            <p>NodeJS can be downloaded through this <a href="https://nodejs.org/en/download/" target="_blank">link</a></p>
+            <h3>Checking Node Version</h3>
+            <p>You can check the Node version with <code>node -v </code> command in the terminal</p>
+            <h3>Running Node</h3>
+            <p>Node code can be run in 2 ways:</p>
+            <ol>
+                <li>
+                    <p><b>Through Node REPL</b><p></p>
+                    <p>In terminal: $ <code>node</code></p>
+                    <img src="./repl.png" width="500px">
+                </li>
+                <li>
+                    <p><b>Through JavaScript file</b><p></p>
+                    <p>In terminal: $ <code>node [file_name]</code></p>
+                    <img src="./node_in_file.png" width="500px">
+                </li>
+            </ol>
+            <h2>Nodemon</h2>
+            <h4><b>Problem:</b> When we make changes to a file, we have to restart the server each time to see the updated version. </h4>
+            <p>Nodemon is a build tools which automatically restarts the server/node application and saves the code if we make changes in files . It is only used for development</p>
+            <p>We can run any type of file with nodemon: node app, regular file </p>
+            <p>We can install it two ways: </p>
+            <ol>
+                <li><code>npm install nodemon / npm install --save-dev nodemon</code> //nodemon will be saved locally and will aply only to particular application</li>
+                <li><code>npm install -g nodemon </code>// this way nodemon will be installed globally on our computer and we wont have to install it for each project</li>
+            </ol>
+            <h3>Staring Nodemon</h3>
+            <p>To start Nodemon we write in the terminal: <code>nodemon/nodemon.cmd [file_name]</code></p>
+            <pre>
+    $ nodemon.cmd app.js            
+            </pre>
+            <h3>Exiting Nodemon</h3>
+            <p>To exit Nodemon - press Ctrl + C and confirm (Y)</p>
+            <img src="./nodemon_example.png" width="700px">
+            <br>
+            <br>
+        </div>
+        <div class="right">
+            
+            <h3>Useful Links</h3>
+            <a href="https://nodejs.org/en/download/" target="_blank">NodeJS Download Page</a>
+            <br>
+            <a href="https://nodejs.dev/learn">Node Documentation </a>
+            <br>
+            <a href="https://www.npmjs.com/package/nodemon">Nodemon Documentation </a>
+            <br>
+            <a href="https://www.w3schools.com/nodejs/nodejs_intro.asp" target="_blank">W3Schools Nodejs Introduction</a>
+            <br>
+            <a href="https://medium.com/jspoint/introduction-to-node-js-a-beginners-guide-to-node-js-and-npm-eca9c408f9fe" target="_blank">Nodejs Introduction (Medium)</a>
+            <br>
+            <a href="https://docs.microsoft.com/en-us/learn/paths/build-javascript-applications-nodejs/?wt.mc_id=nodebeginner-ch9-cxa" target="_blank">Nodejs Introduction (Microsoft)</a>
+            <button id="btnToTop" onclick="topFunction()">Go to Top</button>
+        </div>
+        
+    </div>
+    <script>
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+      }
+      </script>
+          
+</body>
+</html>
